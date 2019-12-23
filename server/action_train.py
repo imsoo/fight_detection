@@ -15,7 +15,7 @@ batch_size = 1024
 lambda_loss_amount = 0.0015
 learning_rate = 0.0025
 decay_rate = 0.02
-training_epochs = 1000
+training_epochs = 300
 
 ###
 def load_X(X_path):
@@ -44,13 +44,13 @@ def load_y(y_path):
     return y_ - 1
 
 
-DATASET_PATH = "data/HAR_pose_activities/database/"
+DATASET_PATH = "train/"
 
-X_train_path = DATASET_PATH + "X_pose36.txt"
-X_test_path = DATASET_PATH + "X_custom.txt"
+X_train_path = DATASET_PATH + "pose36.txt"
+X_test_path = DATASET_PATH + "pose36_test.txt"
 
-y_train_path = DATASET_PATH + "Y_pose36.txt"
-y_test_path = DATASET_PATH + "Y_custom.txt"
+y_train_path = DATASET_PATH + "pose36_c.txt"
+y_test_path = DATASET_PATH + "pose36_test_c.txt"
 
 
 X_train = load_X(X_train_path)
@@ -105,4 +105,4 @@ history = model.fit(
 )
 
 from tensorflow.keras.models import load_model
-model.save('action.h5')
+model.save('weights/action.h5')

@@ -3,7 +3,6 @@ import numpy as np
 import zmq
 import io
 import time
-import sys
 from tensorflow import keras
 from tensorflow.keras.backend import set_session
 config = tf.ConfigProto()
@@ -12,7 +11,7 @@ sess = tf.Session(config=config)
 set_session(sess)
 sess.run(tf.global_variables_initializer())
 
-model = keras.models.load_model(sys.argv[1])
+model = keras.models.load_model("weights/action.h5")
 
 n_input = 24  # num input parameters per timestep
 n_steps = 32

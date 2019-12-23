@@ -1,3 +1,7 @@
+'''
+this python script for CMU panoptic dataset
+To run this script is required ffmpeg-python(https://github.com/kkroening/ffmpeg-python)
+'''
 import glob
 import ffmpeg
 

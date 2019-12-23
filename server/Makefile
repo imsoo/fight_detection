@@ -1,4 +1,4 @@
-DEBUG = 0
+DEBUG = 1
 
 CPP = g++
 COMMON = -DOPENCV
@@ -50,7 +50,7 @@ $(OBJDIR)%.o: %.cpp $(DEPS)
 	$(CPP) $(COMMON) $(CXXFLAGS) -c $< -o $@ 
 
 $(OBJDIR):
-	mkdir -p $(OBJDIR) cfg weights names
+	mkdir -p $(OBJDIR) cfg weights names train
 
 clean:
 	rm -rf $(OBJS) $(EXECS) $(INPROCS)
