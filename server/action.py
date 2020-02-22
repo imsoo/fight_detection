@@ -4,12 +4,24 @@ import zmq
 import io
 import time
 from tensorflow import keras
+
 from tensorflow.keras.backend import set_session
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = True
 sess = tf.Session(config=config)
 set_session(sess)
 sess.run(tf.global_variables_initializer())
+
+'''
+## TF 2.0
+from tensorflow.compat.v1.keras.backend import set_session
+tf.compat.v1.disable_eager_execution()
+config = tf.compat.v1.ConfigProto()  
+config.gpu_options.allow_growth = True
+sess = tf.compat.v1.Session(config=config)
+set_session(sess)
+sess.run(tf.compat.v1.global_variables_initializer())
+'''
 
 model = keras.models.load_model("weights/action.h5")
 
